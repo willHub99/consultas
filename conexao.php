@@ -1,0 +1,1 @@
+/*definição de uma classe para a realização da conexão com o banco de dados (usando PDO)*/
