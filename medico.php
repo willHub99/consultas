@@ -1,1 +1,0 @@
-/*definição de uma classe que define atributos e métodos para o médico*/
