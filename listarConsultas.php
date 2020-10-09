@@ -11,42 +11,66 @@
     <!--Fontawesome-->
     <link rel="stylesheet" href="fontawesome/css/all.css">
 
-    <!--Estilos customizados-->
-    <link rel="stylesheet" href="estilos.css">
-    <title>Login</title>
+    <title>Listar consultas</title>
   </head>
 
   <body>
 
     <header> <!--inicio header-->
-        <div class="container bg-primary p-3 text-light "><!--inicio div cabecalho-->
-          <i class="fas fa-laptop-medical display-3"></i>
-          <h1 class="d-inline-block">Login</h1>
-        </div>  <!--fim div cabecalho-->
+        <div class="container"> <!--inicio container menu-->
+          <nav class="navbar navbar-expand-lg navbar-light bg-primary"> <!--inicio navbar menu-->
+            <i class="fas fa-clipboard-list display-3 text-light"></i>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link text-light" href="cadastrarConsulta.php">Consulta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="dadosUsuario.html">Perfil</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="listarConsultas.php">Histórico <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="index.php">Sair</a>
+                </li>
+              </ul>
+            </div>
+          </nav> <!--fim navbar menu-->
+        </div>  <!--fim container menu-->
     </header> <!--fim header-->
+
     <br><br> <br>
     <div class="container justify-content-center"> <!--inicio container-->
-        <div class="row justify-content-center"> <!--inicio div formulario-->
-            <div class="col-md-6 form-group m-4 p-5">  <!--inicio grid formulario-->
-                <form> <!--inicio formulario-->
-                  <i class="fas fa-user-tie text-primary display-3 d-flex justify-content-center"></i>
-                  <br>
-                  <label for="nome">Nome</label>
-                  <input class="form-control" type="text" name="nome" placeholder="Ex: João da Silva">
-                  <br>
-                  <label for="senha">Senha</label>
-                  <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
-                  <br>
-                  <label for="email">E-mail</label>
-                  <input class="form-control" type="email" name="email" placeholder="encurso@gmail.com.br">
-                  <br>
-                  <input class="btn btn-primary" type="submit" value="Entrar">
-                  <br>
-                  <span class="d-inline-block font-weight-bold">Caso não possua um cadastro</span>
-                  <a href="cadastro.html" class="badge badge-primary">Cadastro</a>
-                </form> <!--fim formulario-->
-            </div>  <!--fim grid formulario-->
-        </div>  <!--fim div formulario-->
+      <table class="table"> <!--inicio tabela dados usuario-->
+        <thead> <!--inicio cabecalho tabela dados usuario-->
+          <tr>
+            <th scope="col">Nome Paciente</th>
+            <th scope="col">Id Consulta</th>
+            <th scope="col">Nome acompanhante</th>
+            <th scope="col">Sintomas</th>
+            <th scope="col">Tipo da consulta</th>
+            <th scope="col">Data da consulta</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead> <!--fim cabecalho tabela dados usuario-->
+
+        <tbody>  <!--inicio corpo tabela dados usuario-->
+          <tr>
+            <td>willian</td>
+            <td id="idusuario">3</td>
+            <td>miguel</td>
+            <td>coronga</td>
+            <td>clínico geral</td>
+            <td>2020/10/20</td>
+            <td><button class="btn btn-success btn-sm"><i class="fas fa-check" onclick="marcarConcluido()"></i></button></td>
+            <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" onclick="removerConsulta()"></i></button></td>
+            <td><button class="btn btn-primary btn-sm"><i class="fas fa-cog" onclick="alterarConsulta()"></i></button></td>
+          </tr>
+        </tbody> <!--fim corpo tabela dados usuario-->
+      </table>  <!--fim tabela dados usuario-->
     </div> <!--fim container-->
 
     <footer class="fixed-bottom">  <!--inicio rodape-->
@@ -70,13 +94,13 @@
                       </button>  <!--inicio botão twitter-->
                     </a>  <!--fim link twitter-->
 
-                    <a href="">  <!--inicio link instagran-->
+                    <a href="https://www.instagram.com/encurso.digital/?hl=pt-br">  <!--inicio link instagran-->
                       <button class="btn btn-light">  <!--inicio botão twitter-->
                         <i class="fab fa-instagram"></i>
                       </button>  <!--inicio botão twitter-->
                     </a>  <!--fim link instagran-->
 
-                    <a href="">  <!--inicio link faceboock-->
+                    <a href="https://www.facebook.com/encursodigital">  <!--inicio link faceboock-->
                       <button class="btn btn-light">  <!--inicio botão twitter-->
                         <i class="fab fa-facebook-f"></i>
                       </button>  <!--inicio botão faceboock-->
@@ -91,5 +115,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="consultas.js"></script>
   </body>
 </html>

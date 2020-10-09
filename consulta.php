@@ -1,34 +1,21 @@
-/*definição de uma classe que define atributos e métodos para o processo de CRUD de uma consulta, tendo como parametros objetos das classes
-usurio, medico, conexao*/
-
 <?php
+    require_once "usuario.php";
+
     class Consulta {
+        private $id;
         private $nomePaciente;
         private $nomeAcompanhante;
         private $dataConsulta;
         private $tipoConsulta;
         private $sintomas;
 
-        public function __get($valor){
-            return $this->valor;
+        public function __get($propriedade){
+            return $this->$propriedade;
         }
-        public function __set($propriedade,$valor){
-            $this->propriedade = $valor;
+        public function __set($atributo,$valor){
+            $this->$atributo = $valor;
         }
-
-        public function inserirConsulta() {
-
-        }
-        public function removerConsulta() {
-            
-        }
-        public function editarConsulta() {
-            
-        }
-        public function listarConsulta() {
-            
-        }
-
     }
+
 ?>
 

@@ -13,63 +13,50 @@
 
     <!--Estilos customizados-->
     <link rel="stylesheet" href="estilos.css">
-    <title>Listar consultas</title>
+    <title>Login</title>
   </head>
 
   <body>
 
     <header> <!--inicio header-->
-        <div class="container"> <!--inicio container menu-->
-          <nav class="navbar navbar-expand-lg navbar-light bg-primary"> <!--inicio navbar menu-->
-            <i class="fas fa-clipboard-list display-3 text-light"></i>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link text-light" href="registrarConsulta.html">Consulta</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="dadosUsuario.html">Perfil</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="listarConsultas.html">Histórico <span class="sr-only">(current)</span></a>
-                </li>
-              </ul>
-            </div>
-          </nav> <!--fim navbar menu-->
-        </div>  <!--fim container menu-->
+        <div class="container bg-primary p-3 text-light "><!--inicio div cabecalho-->
+          <i class="fas fa-laptop-medical display-3"></i>
+          <h1 class="d-inline-block">Login</h1>
+        </div>  <!--fim div cabecalho-->
     </header> <!--fim header-->
-
-    <br><br> <br>
+    <br>
+    <?php if(isset($_GET['registro']) && $_GET['registro']==0) { ?>
+    <div class="container"> <!--inicio container confirmar cadastro-->
+      <div class="row"> <!--inicio row confirm cadastro-->
+        <div class="col-md-12"> <!--inicio div confirmar cadastro-->
+          <h1 class="bg-danger text-light">Acesso negado!!!</h1>
+          <a href="index.php" class="badge badge-primary p-3">Inserir os dados novamente</a>
+        </div> <!--fim div confirmar cadastro-->
+      </div> <!--fim row confirm cadastro-->
+  </div> <!--fim container confirmar cadastro-->
+    <?php } ?>
     <div class="container justify-content-center"> <!--inicio container-->
-      <table class="table"> <!--inicio tabela dados usuario-->
-        <thead> <!--inicio cabecalho tabela dados usuario-->
-          <tr>
-            <th scope="col">Nome Paciente</th>
-            <th scope="col">Nome acompanhante</th>
-            <th scope="col">Sintomas</th>
-            <th scope="col">Tipo da consulta</th>
-            <th scope="col">Data da consulta</th>
-            <th scope="col">Médico responsável</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-          </tr>
-        </thead> <!--fim cabecalho tabela dados usuario-->
-
-        <tbody>  <!--inicio corpo tabela dados usuario-->
-          <tr>
-            <th scope="row">Willian Rodrigo Huber</th>
-            <td></td>
-            <td>Coronga</td>
-            <td>Clínico Geral</td>
-            <td>01/02/1999</td>
-            <td>Doutor João</td>
-            <td><button class="btn btn-success btn-sm"><i class="fas fa-check"></i></button></td>
-            <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></td>
-            <td><button class="btn btn-primary btn-sm"><i class="fas fa-cog"></i></button></td>
-          </tr>
-        </tbody> <!--fim corpo tabela dados usuario-->
-      </table>  <!--fim tabela dados usuario-->
+        <div class="row justify-content-center"> <!--inicio div formulario-->
+            <div class="col-md-6 form-group m-4 p-5">  <!--inicio grid formulario-->
+                <form method="post" action="login.php"> <!--inicio formulario-->
+                  <i class="fas fa-user-tie text-primary display-3 d-flex justify-content-center"></i>
+                  <br>
+                  <label for="nome">Nome</label>
+                  <input class="form-control" type="text" name="nome" placeholder="Ex: João da Silva">
+                  <br>
+                  <label for="senha">Senha</label>
+                  <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
+                  <br>
+                  <label for="email">E-mail</label>
+                  <input class="form-control" type="email" name="email" placeholder="encurso@gmail.com.br">
+                  <br>
+                  <button class="btn btn-primary mt-3">Acessar</button>
+                  <br>
+                  <span class="d-inline-block font-weight-bold">Caso não possua um cadastro</span>
+                  <a href="cadastro.html" class="badge badge-primary">Cadastro</a>
+                </form> <!--fim formulario-->
+            </div>  <!--fim grid formulario-->
+        </div>  <!--fim div formulario-->
     </div> <!--fim container-->
 
     <footer class="fixed-bottom">  <!--inicio rodape-->
@@ -93,13 +80,13 @@
                       </button>  <!--inicio botão twitter-->
                     </a>  <!--fim link twitter-->
 
-                    <a href="">  <!--inicio link instagran-->
+                    <a href="https://www.instagram.com/encurso.digital/?hl=pt-br">  <!--inicio link instagran-->
                       <button class="btn btn-light">  <!--inicio botão twitter-->
                         <i class="fab fa-instagram"></i>
                       </button>  <!--inicio botão twitter-->
                     </a>  <!--fim link instagran-->
 
-                    <a href="">  <!--inicio link faceboock-->
+                    <a href="https://www.facebook.com/encursodigital">  <!--inicio link faceboock-->
                       <button class="btn btn-light">  <!--inicio botão twitter-->
                         <i class="fab fa-facebook-f"></i>
                       </button>  <!--inicio botão faceboock-->

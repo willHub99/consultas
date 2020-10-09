@@ -2,7 +2,7 @@
 
     class Usuario {
         private $nome;
-        public $contato;
+        public  $contato;
         private $idade;
         private $sexo;
         private $rg;
@@ -16,16 +16,12 @@
         private $municipio;
         private $estado;
 
+
         public function __get($valor){
-            return $this->valor;
+            return $this->$valor;
         }
         public function __set($propriedade,$valor){
-            $this->propriedade = $valor;
-        }
-
-        public function cadastrarUsuario(){
-
+            $this->$propriedade = $valor;
         }
     }
-
 ?>

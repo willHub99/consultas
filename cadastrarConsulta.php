@@ -11,8 +11,6 @@
     <!--Fontawesome-->
     <link rel="stylesheet" href="fontawesome/css/all.css">
 
-    <!--Estilos customizados-->
-    <link rel="stylesheet" href="estilos.css">
     <title>Registrar consulta</title>
   </head>
 
@@ -25,13 +23,16 @@
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link text-light" href="registrarConsulta.html">Consulta <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-light" href="cadastrarConsulta.php">Consulta <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light" href="dadosUsuario.html">Perfil</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="listarConsultas.html">Histórico</a>
+                  <a class="nav-link text-light" href="listarConsultas.php">Histórico</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="index.php">Sair</a>
                 </li>
               </ul>
             </div>
@@ -39,26 +40,32 @@
         </div>  <!--fim container menu-->
     </header> <!--fim header-->
 
+    <br>
+    <?php if(isset($_GET['registro']) && $_GET['registro']==1) { ?>
+    <div class="container"> <!--inicio container confirmar cadastro-->
+      <div class="row"> <!--inicio row confirm cadastro-->
+        <div class="col-md-12"> <!--inicio div confirmar cadastro-->
+          <h1 class="bg-success text-light">Consulta cadastrada com sucesso</h1>
+          <a href="cadastrarConsulta.php" class="badge badge-primary p-3 mt-2">Ok</a>
+        </div> <!--fim div confirmar cadastro-->
+      </div> <!--fim row confirm cadastro-->
+  </div> <!--fim container confirmar cadastro-->
+  <?php } ?>
     <br><br><br>
     <div class="container justify-content-center"> <!--inicio container-->
         <div class="container"> <!--inicio container consultas-->
-            <form> <!--inicio formulario-->
-              <div class="row"> <!--inicio row nomes (paciente-acompanhante-medico) consulta-->
-                  <div class="form-group col-md-4">  <!--inicio nome paciente-->
+            <form method="post" action="registrarConsulta.php?crud=inserir"> <!--inicio formulario-->
+              <div class="row"> <!--inicio row nomes (paciente-acompanhante) consulta-->
+                  <div class="form-group col-md-6">  <!--inicio nome paciente-->
                     <label for="paciente">Nome do paciente</label>
                     <input class="form-control" type="text" name="paciente" id="paciente" placeholder="Ex: João da Silva">
                   </div> <!--fim nome paciente-->
 
-                  <div class="form-group col-md-4">  <!--inicio nome acompanhante-->
+                  <div class="form-group col-md-6">  <!--inicio nome acompanhante-->
                     <label for="acompanhante">Nome do acompanhante</label>
                     <input class="form-control" type="text" name="acompanhante" id="acompanhante" placeholder="Ex: Miguel Antunes">
                   </div> <!--fim nome acompanhante-->
-
-                  <div class="form-group col-md-4">  <!--inicio nome medico responsavel-->
-                    <label for="medico">Nome do médico responsável</label>
-                    <input class="form-control" type="text" name="medico" id="medico" placeholder="Ex: Matheus de Andrade">
-                  </div> <!--fim nome medico responsavel-->
-              </div>  <!--fim row nomes(paciente-acompanhante-medico) consulta-->
+              </div>  <!--fim row nomes(paciente-acompanhante) consulta-->
 
               <div class="row"> <!--inicio row data/tipo consulta-->
                 <div class="form-group col-md-6"> <!--inicio div data consulta-->
@@ -85,8 +92,7 @@
                     <textarea class="form-control" id="sintomas" name="sintomas" rows="3"></textarea>
                   </div> <!--fim div sintomas-->
               </div>  <!--fim row sintomas-->
-                <input class="btn btn-primary mt-3" type="submit" value="Registrar consulta">
-              
+              <button class="btn btn-primary mt-3">Registrar consulta</button>
             </form> <!--fim formulario-->
         </div> <!--fim container consultas-->
 
@@ -114,13 +120,13 @@
                       </button>  <!--inicio botão twitter-->
                     </a>  <!--fim link twitter-->
 
-                    <a href="">  <!--inicio link instagran-->
+                    <a href="https://www.instagram.com/encurso.digital/?hl=pt-br">  <!--inicio link instagran-->
                       <button class="btn btn-light">  <!--inicio botão twitter-->
                         <i class="fab fa-instagram"></i>
                       </button>  <!--inicio botão twitter-->
                     </a>  <!--fim link instagran-->
 
-                    <a href="">  <!--inicio link faceboock-->
+                    <a href="https://www.facebook.com/encursodigital">  <!--inicio link faceboock-->
                       <button class="btn btn-light">  <!--inicio botão twitter-->
                         <i class="fab fa-facebook-f"></i>
                       </button>  <!--inicio botão faceboock-->

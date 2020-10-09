@@ -11,8 +11,6 @@
     <!--Fontawesome-->
     <link rel="stylesheet" href="fontawesome/css/all.css">
 
-    <!--Estilos customizados-->
-    <link rel="stylesheet" href="estilos.css">
     <title>Cadastro</title>
   </head>
 
@@ -24,35 +22,44 @@
           <h1 class="d-inline-block">Cadastro</h1>
         </div>  <!--fim div cabecalho-->
     </header> <!--fim header-->
-
+    <br>
+    <?php if(isset($_GET['registro']) && $_GET['registro']==1) { ?>
+    <div class="container"> <!--inicio container confirmar cadastro-->
+      <div class="row"> <!--inicio row confirm cadastro-->
+        <div class="col-md-12"> <!--inicio div confirmar cadastro-->
+          <h1 class="bg-success text-light">Cadastro realizado com sucesso</h1>
+          <a href="index.php" class="badge badge-primary p-3 mt-2">Voltar</a>
+        </div> <!--fim div confirmar cadastro-->
+      </div> <!--fim row confirm cadastro-->
+  </div> <!--fim container confirmar cadastro-->
+  <?php } ?>
     <div class="container justify-content-center"> <!--inicio container-->
         <div class="row justify-content-center"> <!--inicio div formulario-->
             <div class="col-md-12 form-group m-4 p-5">  <!--inicio grid formulario-->
-                <form> <!--inicio formulario-->
+                <form method="post" action="registrarUsuario.php"> <!--inicio formulario-->
 
                   <div class="row"> <!--inicio row nome/contato/idade/sexo-->
                       <div class="col-md-3"> <!--inicio div nome-->
                         <label for="nome">Nome</label>
                         <input class="form-control mr-5" type="text" name="nome" placeholder="Ex: João da Silva">
-                      </div> <!--fim div nome-->
-                      <div class="col-md-3"> <!--inicio div contato-->
+                  </div> <!--fim div nome-->
+                  <div class="col-md-3"> <!--inicio div contato-->
                         <label for="contato">Contato</label>
                         <input class="form-control mr-5" type="text" name="contato" placeholder="Ex: (45) 9 99999999">
-                      </div> <!--fim div contato-->
-                      <div class="col-md-3"> <!--inicio div idade-->              
+                  </div> <!--fim div contato-->
+                  <div class="col-md-3"> <!--inicio div idade-->              
                         <label for="idade">Idade</label>
                         <input class="form-control" type="text" name="idade" placeholder="Ex: 18">
-                      </div> <!--fim div idade-->
-                      <div class="form-group col-md-3">  <!--inicio div sexo-->
+                  </div> <!--fim div idade-->
+                  <div class="form-group col-md-3">  <!--inicio div sexo-->
                         <label for="sexo">Sexo</label>
                         <select id="inputState" class="form-control" name="sexo">
                           <option selected>Sexo</option>
                           <option>F</option>
                           <option>M</option>
                         </select>
-                      </div> <!--inicio div sexo-->
+                  </div> <!--fim div sexo-->
                   </div>  <!--fim row nome/contato/idade/sexo-->
-                  <br>
                   <div class="row">  <!--inicio row cpf/rg/datanascimento-->
                       <div class="col-md-4"> <!--inicio div cpf-->
                           <label for="cpf">CPF</label>
@@ -67,7 +74,6 @@
                         <input class="form-control" type="date" name="datanascimento" placeholder="Ex: Dia/Mes/Ano">
                       </div> <!--fim div data nascimento-->
                   </div> <!--fim row cpf/rg/datanascimento-->
-                  <br>
                   <div class="row"> <!--inicio row senha-->
                       <div class="col-md-6"> <!--inicio div senha-->
                         <label for="senha">Senha</label>
@@ -79,7 +85,6 @@
                         <input class="form-control" type="password" name="repetirsenha" placeholder="Digite sua senha">
                       </div>  <!--fim div nova senha-->
                   </div>  <!--fim row senha-->
-                  <br>
                   <div class="row">  <!--inicio row email-->
                       <div class="col-md-6">   <!--inicio div email-->
                         <label for="email">E-mail</label>
@@ -91,7 +96,6 @@
                         <input class="form-control" type="email" name="repetiremail" placeholder="encurso@gmail.com.br">
                       </div>  <!--fim div novo email-->
                   </div>  <!--fim row email-->
-                  <br>
                   <div class="row"> <!--inicio row endereco/municipio/estado-->
                       <div class="col-md-4"> <!--inicio div endereco-->
                         <label for="endereco">Endereço</label>
@@ -135,12 +139,13 @@
                         </select>
                       </div>  <!--inicio div estado-->
                   </div>  <!--fim row endereco/municipio/estado-->
-                  <input class="btn btn-primary mt-3" type="submit" value="Registrar">
+                  <button class="btn btn-primary mt-3">Registrar</button>
 
                 </form> <!--fim formulario-->
             </div>  <!--fim grid formulario-->
         </div>  <!--fim div formulario-->
     </div> <!--fim container-->
+
 
     <footer class="fixed-bottom">  <!--inicio rodape-->
       <div class="container bg-primary">  <!--inicio container-->
@@ -163,13 +168,13 @@
                       </button>  <!--inicio botão twitter-->
                     </a>  <!--fim link twitter-->
 
-                    <a href="">  <!--inicio link instagran-->
+                    <a href="https://www.instagram.com/encurso.digital/?hl=pt-br">  <!--inicio link instagran-->
                       <button class="btn btn-light">  <!--inicio botão twitter-->
                         <i class="fab fa-instagram"></i>
                       </button>  <!--inicio botão twitter-->
                     </a>  <!--fim link instagran-->
 
-                    <a href="">  <!--inicio link faceboock-->
+                    <a href="https://www.facebook.com/encursodigital">  <!--inicio link faceboock-->
                       <button class="btn btn-light">  <!--inicio botão twitter-->
                         <i class="fab fa-facebook-f"></i>
                       </button>  <!--inicio botão faceboock-->
