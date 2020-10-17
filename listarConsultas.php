@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 <?php
       $acao = 'listar';
       require_once "exibir.php";
 ?>
 
-=======
->>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
 <!doctype html>
 <html lang="en">
   <head>
@@ -34,11 +31,7 @@
                   <a class="nav-link text-light" href="cadastrarConsulta.php">Consulta</a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
                   <a class="nav-link text-light" href="dadosUsuario.php">Perfil</a>
-=======
-                  <a class="nav-link text-light" href="dadosUsuario.html">Perfil</a>
->>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light" href="listarConsultas.php">Histórico <span class="sr-only">(current)</span></a>
@@ -68,7 +61,7 @@
             <th scope="col"></th>
           </tr>
         </thead> <!--fim cabecalho tabela dados usuario-->
-<<<<<<< HEAD
+
         
         <?php for($i=0; $i < sizeof($rows); $i++) {  ?>
             <tbody>  <!--inicio corpo tabela dados usuario-->
@@ -85,7 +78,6 @@
               </tr>
             </tbody> <!--fim corpo tabela dados usuario-->
         <?php } ?>
-=======
 
         <tbody>  <!--inicio corpo tabela dados usuario-->
           <tr>
@@ -100,7 +92,6 @@
             <td><button class="btn btn-primary btn-sm"><i class="fas fa-cog" onclick="alterarConsulta()"></i></button></td>
           </tr>
         </tbody> <!--fim corpo tabela dados usuario-->
->>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
       </table>  <!--fim tabela dados usuario-->
     </div> <!--fim container-->
 

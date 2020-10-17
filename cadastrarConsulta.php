@@ -26,11 +26,7 @@
                   <a class="nav-link text-light" href="cadastrarConsulta.php">Consulta <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
                   <a class="nav-link text-light" href="dadosUsuario.php">Perfil</a>
-=======
-                  <a class="nav-link text-light" href="dadosUsuario.html">Perfil</a>
->>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light" href="listarConsultas.php">Histórico</a>

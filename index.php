@@ -53,7 +53,7 @@
                   <button class="btn btn-primary mt-3">Acessar</button>
                   <br>
                   <span class="d-inline-block font-weight-bold">Caso não possua um cadastro</span>
-                  <a href="cadastro.html" class="badge badge-primary">Cadastro</a>
+                  <a href="cadastro.php" class="badge badge-primary">Cadastro</a>
                 </form> <!--fim formulario-->
             </div>  <!--fim grid formulario-->
         </div>  <!--fim div formulario-->
