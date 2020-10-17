@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-<?php
-      $acao = 'listar';
-      require_once "exibir.php";
-?>
-
-=======
->>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,7 +11,7 @@
     <!--Fontawesome-->
     <link rel="stylesheet" href="fontawesome/css/all.css">
 
-    <title>Listar consultas</title>
+    <title>Perfil Usuário</title>
   </head>
 
   <body>
@@ -27,21 +19,17 @@
     <header> <!--inicio header-->
         <div class="container"> <!--inicio container menu-->
           <nav class="navbar navbar-expand-lg navbar-light bg-primary"> <!--inicio navbar menu-->
-            <i class="fas fa-clipboard-list display-3 text-light"></i>
+            <i class="fas fa-file-medical text-light display-3"></i>
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                   <a class="nav-link text-light" href="cadastrarConsulta.php">Consulta</a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
-                  <a class="nav-link text-light" href="dadosUsuario.php">Perfil</a>
-=======
-                  <a class="nav-link text-light" href="dadosUsuario.html">Perfil</a>
->>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
+                  <a class="nav-link text-light" href="dadosUsuario.html">Perfil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="listarConsultas.php">Histórico <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-light" href="listarConsultas.php">Histórico</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light" href="index.php">Sair</a>
@@ -57,50 +45,28 @@
       <table class="table"> <!--inicio tabela dados usuario-->
         <thead> <!--inicio cabecalho tabela dados usuario-->
           <tr>
-            <th scope="col">Nome Paciente</th>
-            <th scope="col">Id Consulta</th>
-            <th scope="col">Nome acompanhante</th>
-            <th scope="col">Sintomas</th>
-            <th scope="col">Tipo da consulta</th>
-            <th scope="col">Data da consulta</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Data nascimento</th>
+            <th scope="col">Contato</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Município</th>
+            <th scope="col">Estado</th>
           </tr>
         </thead> <!--fim cabecalho tabela dados usuario-->
-<<<<<<< HEAD
-        
-        <?php for($i=0; $i < sizeof($rows); $i++) {  ?>
-            <tbody>  <!--inicio corpo tabela dados usuario-->
-              <tr>
-                <td> <?= $rows[$i]['nomePaciente'] ?> </td>
-                <td id="idusuario"> <?= $rows[$i]['idConsulta'] ?> </td>
-                <td> <?= $rows[$i]['nomeAcompanhante'] ?> </td>
-                <td> <?= $rows[$i]['sintomas'] ?> </td>
-                <td> <?= $rows[$i]['tipoConsulta'] ?> </td>
-                <td> <?= $rows[$i]['dataConsulta'] ?> </td>
-                <td><button class="btn btn-success btn-sm"><i class="fas fa-check" onclick="marcarConcluido()"></i></button></td>
-                <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" onclick="removerConsulta()"></i></button></td>
-                <td><button class="btn btn-primary btn-sm"><i class="fas fa-cog" onclick="alterarConsulta()"></i></button></td>
-              </tr>
-            </tbody> <!--fim corpo tabela dados usuario-->
-        <?php } ?>
-=======
 
-        <tbody>  <!--inicio corpo tabela dados usuario-->
+        <tbody>  <!--inicio linhas tabela dados usuario-->
           <tr>
-            <td>willian</td>
-            <td id="idusuario">3</td>
-            <td>miguel</td>
-            <td>coronga</td>
-            <td>clínico geral</td>
-            <td>2020/10/20</td>
-            <td><button class="btn btn-success btn-sm"><i class="fas fa-check" onclick="marcarConcluido()"></i></button></td>
-            <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" onclick="removerConsulta()"></i></button></td>
-            <td><button class="btn btn-primary btn-sm"><i class="fas fa-cog" onclick="alterarConsulta()"></i></button></td>
+            <th scope="row">Willian Rodrigo Huber</th>
+            <td>01/02/1999</td>
+            <td>(45) 9 99264637</td>
+            <td>M</td>
+            <td>Rua das Camélias</td>
+            <td>Toledo</td>
+            <td>PR</td>
+
           </tr>
-        </tbody> <!--fim corpo tabela dados usuario-->
->>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
+        </tbody> <!--fim linhas tabela dados usuario-->
       </table>  <!--fim tabela dados usuario-->
     </div> <!--fim container-->
 
@@ -146,6 +112,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="consultas.js"></script>
   </body>
 </html>

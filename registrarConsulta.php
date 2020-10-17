@@ -49,7 +49,11 @@
         $sintomas = $consulta->__get('sintomas');
         $tipo = $consulta->__get('tipoConsulta');
 
+<<<<<<< HEAD
         $sql = 'INSERT INTO consulta(idUsuario, statusConsulta, nomePaciente, nomeAcompanhante, dataConsulta, tipoConsulta, sintomas) VALUES(:id,:statusc, :paciente, :acompanhante, :datac, :tipo, :sintomas)';
+=======
+        $sql = 'INSERT INTO consulta(idUsuario, statusConulta, nomePaciente, nomeAcompanhante, dataConsulta, tipoConsulta, sintomas) VALUES(:id,:statusc, :paciente, :acompanhante, :datac, :tipo, :sintomas)';
+>>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
         $stmt = $PDO->prepare( $sql );
         $stmt->bindParam( ':paciente', $nomePaciente);
         $stmt->bindParam( ':acompanhante', $nomeAcompanhante );

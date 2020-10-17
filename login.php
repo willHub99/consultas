@@ -1,6 +1,9 @@
 <?php
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
   require_once "usuario.php";
 
   define( 'MYSQL_HOST', 'localhost' );
@@ -26,6 +29,7 @@
     $sql = "SELECT * FROM usuario";
     $result = $PDO->query( $sql );
     $rows = $result->fetchAll( PDO::FETCH_ASSOC );
+<<<<<<< HEAD
     print_r($rows);
 
     $id;
@@ -41,6 +45,12 @@
     for($i=0; $i< sizeof($rows);$i++){
       if ($rows[$i]['nomeUsuario'] == $usuario->__get('nome') && $rows[$i]['senhaUsuario'] == $usuario->__get('senha') && $rows[$i]['emailUsuario'] == $usuario->__get('email')) {
         header('Location: dadosUsuario.php?id='.$id);
+=======
+ 
+    for($i=0; $i< sizeof($rows);$i++){
+      if ($rows[$i]['nomeUsuario'] == $usuario->__get('nome') && $rows[$i]['senhaUsuario'] == $usuario->__get('senha') && $rows[$i]['emailUsuario'] == $usuario->__get('email')) {
+        header('Location: dadosUsuario.html');
+>>>>>>> ad9396b60578c317cf74bb54e18277f4821eb797
         break;
       } 
       elseif ($rows[$i]['nomeUsuario'] != $usuario->__get('nome') || $rows[$i]['senhaUsuario'] != $usuario->__get('senha') || $rows[$i]['emailUsuario'] != $usuario->__get('email')) {
