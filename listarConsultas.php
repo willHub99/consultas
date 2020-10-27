@@ -15,6 +15,7 @@
 
     <!--Fontawesome-->
     <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="shortcut icon" href="./imagens/hospital.png"/>
 
     <title>Listar consultas</title>
   </head>
@@ -47,51 +48,86 @@
 
     <br><br> <br>
     <div class="container justify-content-center"> <!--inicio container-->
+
+        <?php if(isset($_GET['alterar']) && $_GET['alterar']==1) { ?>
+        <div class="container"> <!--inicio container confirmar cadastro-->
+          <div class="row"> <!--inicio row confirm cadastro-->
+            <div class="col-md-12"> <!--inicio div confirmar cadastro-->
+              <h1 class="bg-success text-light">Data alterada com sucesso</h1>
+              <a href="listarConsultas.php" class="badge badge-primary p-3 mt-2 mb-3">Ok</a>
+            </div> <!--fim div confirmar cadastro-->
+          </div> <!--fim row confirm cadastro-->
+      </div> <!--fim container confirmar cadastro-->
+      <?php } ?>
+
+      <?php if(isset($_GET['concluido']) && $_GET['concluido']==1) { ?>
+        <div class="container"> <!--inicio container confirmar cadastro-->
+          <div class="row"> <!--inicio row confirm cadastro-->
+            <div class="col-md-12"> <!--inicio div confirmar cadastro-->
+              <h1 class="bg-success text-light">Consulta marcada como realizada</h1>
+              <a href="listarConsultas.php" class="badge badge-primary p-3 mt-2 mb-3">Ok</a>
+            </div> <!--fim div confirmar cadastro-->
+          </div> <!--fim row confirm cadastro-->
+      </div> <!--fim container confirmar cadastro-->
+      <?php } ?>
+
+      <?php if(isset($_GET['remover']) && $_GET['remover']==1) { ?>
+        <div class="container"> <!--inicio container confirmar cadastro-->
+          <div class="row"> <!--inicio row confirm cadastro-->
+            <div class="col-md-12"> <!--inicio div confirmar cadastro-->
+              <h1 class="bg-success text-light">Consulta excluida com sucesso</h1>
+              <a href="listarConsultas.php" class="badge badge-primary p-3 mt-2 mb-3">Ok</a>
+            </div> <!--fim div confirmar cadastro-->
+          </div> <!--fim row confirm cadastro-->
+      </div> <!--fim container confirmar cadastro-->
+      <?php } ?>
+
       <table class="table"> <!--inicio tabela dados usuario-->
         <thead> <!--inicio cabecalho tabela dados usuario-->
           <tr>
             <th scope="col">Nome Paciente</th>
-            <th scope="col">Id Consulta</th>
             <th scope="col">Nome acompanhante</th>
             <th scope="col">Sintomas</th>
             <th scope="col">Tipo da consulta</th>
             <th scope="col">Data da consulta</th>
             <th scope="col"></th>
             <th scope="col"></th>
-            <th scope="col"></th>
+            
           </tr>
         </thead> <!--fim cabecalho tabela dados usuario-->
 
         
         <?php for($i=0; $i < sizeof($rows); $i++) {  ?>
+           
             <tbody>  <!--inicio corpo tabela dados usuario-->
+            <?php if ($rows[$i]['statusConsulta'] == 0) {?>
               <tr>
                 <td> <?= $rows[$i]['nomePaciente'] ?> </td>
-                <td id="idusuario"> <?= $rows[$i]['idConsulta'] ?> </td>
                 <td> <?= $rows[$i]['nomeAcompanhante'] ?> </td>
                 <td> <?= $rows[$i]['sintomas'] ?> </td>
                 <td> <?= $rows[$i]['tipoConsulta'] ?> </td>
-                <td> <?= $rows[$i]['dataConsulta'] ?> </td>
-                <td><button class="btn btn-success btn-sm"><i class="fas fa-check" onclick="marcarConcluido()"></i></button></td>
-                <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" onclick="removerConsulta()"></i></button></td>
-                <td><button class="btn btn-primary btn-sm"><i class="fas fa-cog" onclick="alterarConsulta()"></i></button></td>
+                <td style="display:block; " id="consulta_<?= $rows[$i]['idConsulta'] ?>" > <?= $rows[$i]['dataConsulta'] ?> </td>
+                <td><button class="btn btn-success btn-sm"><i class="fas fa-check" onclick="marcarConcluido(<?= $rows[$i]['idConsulta'] ?>)"></i></button></td>
+                <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" onclick="removerConsulta(<?= $rows[$i]['idConsulta'] ?>)"></i></button></td>
+                <td><button class="btn btn-primary btn-sm"><i class="fas fa-cog" onclick="alterarConsulta(<?= $rows[$i]['idConsulta'] ?>, '<?= $rows[$i]['dataConsulta'] ?>')"></i></button></td>
               </tr>
+            <?php } ?>
+
+            <?php if ($rows[$i]['statusConsulta'] == 1) {?>
+              <tr>
+                <td> <?= $rows[$i]['nomePaciente'] ?> </td>
+                <td> <?= $rows[$i]['nomeAcompanhante'] ?> </td>
+                <td> <?= $rows[$i]['sintomas'] ?> </td>
+                <td> <?= $rows[$i]['tipoConsulta'] ?> </td>
+                <td style="display:block; " id="consulta_<?= $rows[$i]['idConsulta'] ?>" > <?= $rows[$i]['dataConsulta'] ?> </td>
+                <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" onclick="removerConsulta(<?= $rows[$i]['idConsulta'] ?>)"></i></button></td>
+                <td><button class="btn btn-primary btn-sm"><i class="fas fa-cog" onclick="alterarConsulta(<?= $rows[$i]['idConsulta'] ?>, '<?= $rows[$i]['dataConsulta'] ?>')"></i></button></td>
+              </tr>
+            <?php } ?>
+
             </tbody> <!--fim corpo tabela dados usuario-->
         <?php } ?>
 
-        <tbody>  <!--inicio corpo tabela dados usuario-->
-          <tr>
-            <td>willian</td>
-            <td id="idusuario">3</td>
-            <td>miguel</td>
-            <td>coronga</td>
-            <td>clínico geral</td>
-            <td>2020/10/20</td>
-            <td><button class="btn btn-success btn-sm"><i class="fas fa-check" onclick="marcarConcluido()"></i></button></td>
-            <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" onclick="removerConsulta()"></i></button></td>
-            <td><button class="btn btn-primary btn-sm"><i class="fas fa-cog" onclick="alterarConsulta()"></i></button></td>
-          </tr>
-        </tbody> <!--fim corpo tabela dados usuario-->
       </table>  <!--fim tabela dados usuario-->
     </div> <!--fim container-->
 

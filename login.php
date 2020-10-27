@@ -38,7 +38,7 @@
  
     for($i=0; $i< sizeof($rows);$i++){
       if ($rows[$i]['nomeUsuario'] == $usuario->__get('nome') && $rows[$i]['senhaUsuario'] == $usuario->__get('senha') && $rows[$i]['emailUsuario'] == $usuario->__get('email')) {
-        header('Location: dadosUsuario.html');
+        header('Location: dadosUsuario.php?id='. $id);
         break;
       } 
       elseif ($rows[$i]['nomeUsuario'] != $usuario->__get('nome') || $rows[$i]['senhaUsuario'] != $usuario->__get('senha') || $rows[$i]['emailUsuario'] != $usuario->__get('email')) {

@@ -1,3 +1,8 @@
+<?php
+      $acao = 'cadastrar';
+      require_once "exibir.php";
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,9 +12,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+    <link rel="shortcut icon" href="./imagens/hospital.png"/>
     <!--Fontawesome-->
     <link rel="stylesheet" href="fontawesome/css/all.css">
+    
 
     <title>Registrar consulta</title>
   </head>
@@ -92,6 +98,10 @@
                     <textarea class="form-control" id="sintomas" name="sintomas" rows="3"></textarea>
                   </div> <!--fim div sintomas-->
               </div>  <!--fim row sintomas-->
+              <div>
+                  <input id="id" type='hidden' name='id' value='<?= $identificador ?> '>
+              </div>
+
               <button class="btn btn-primary mt-3">Registrar consulta</button>
             </form> <!--fim formulario-->
         </div> <!--fim container consultas-->

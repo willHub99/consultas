@@ -22,7 +22,6 @@ CREATE TABLE usuario (
 CREATE TABLE consulta (
     idUsuario integer,
     statusConsulta char(2),
-    statusConulta char(2),
     idConsulta integer AUTO_INCREMENT,
     nomePaciente char(50),
     nomeAcompanhante char(50),
@@ -38,7 +37,7 @@ CREATE TABLE consulta (
 INSERT INTO usuario(idUsuario, nomeUsuario, contatoUsuario, idadeUsuario, sexoUsuario, cpfUsuario, rgUsuario, dataNascimento, senhaUsuario, emailUsuario, enderecoUsuario, municipioUsuario, estadoUsuario) 
 VALUES (1,'willian', '(45) 9 99999999', 21, 'M', '99999999-99', '99999999-9', "1999/02/01", 'will1999hub', 'willian@gmail.com', 'rua das camelias', 'Toledo', 'PR');
  
-INSERT INTO consulta(idUsuario,statusConulta, idConsulta, nomePaciente, nomeAcompanhante, dataConsulta, tipoConsulta, sintomas) 
-VALUES (1, 1, 1, 'willian', 'joão', "2020/09/02", 'Cardiologia', 'dor de cabeça');
+INSERT INTO consulta(idUsuario,statusConsulta, idConsulta, nomePaciente, nomeAcompanhante, dataConsulta, tipoConsulta, sintomas) 
+VALUES (1, 0, 1, 'willian', 'joão', "2020/09/02", 'Cardiologia', 'dor de cabeça');
 
 

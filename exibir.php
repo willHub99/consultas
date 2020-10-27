@@ -7,7 +7,7 @@
     }
 
     $arquivo = fopen('id.txt','r');
-    $string = file_get_contents('id.txt');
+    $identificador = file_get_contents('id.txt');
     fclose($arquivo);
 
     define( 'MYSQL_HOST', 'localhost' );
@@ -24,17 +24,17 @@
     }
 
   
-  $id = $string;
+  $id = $identificador;
   
 
   if(isset($acao) && $acao == 'dados'){
-    $sql = "SELECT * FROM usuario WHERE " . $id;
+    $sql = "SELECT * FROM usuario WHERE idUsuario=" . $id;
     $result = $PDO->query( $sql );
     $rows = $result->fetchAll( PDO::FETCH_ASSOC);
   }
 
   if(isset($acao) && $acao == 'listar'){
-    $sql = "SELECT * FROM consulta WHERE" . $id;
+    $sql = "SELECT * FROM consulta WHERE idUsuario=" . $id;
     $result = $PDO->query( $sql );
     $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 

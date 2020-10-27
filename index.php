@@ -13,6 +13,7 @@
 
     <!--Estilos customizados-->
     <link rel="stylesheet" href="estilos.css">
+    <link rel="shortcut icon" href="./imagens/hospital.png"/>
     <title>Login</title>
   </head>
 

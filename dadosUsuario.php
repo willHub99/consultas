@@ -1,6 +1,10 @@
 <?php
       $acao = 'dados';
       require_once "exibir.php";
+      //echo "<pre>";
+      //print_r($rows);
+      //print_r($id);
+      //echo "</pre>";
 ?>
 
 <!doctype html>
@@ -15,6 +19,7 @@
 
     <!--Fontawesome-->
     <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="shortcut icon" href="./imagens/hospital.png"/>
 
     <title>Perfil Usuário</title>
   </head>

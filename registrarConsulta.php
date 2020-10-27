@@ -1,10 +1,10 @@
 <?php
 
   require_once "consulta.php";
-
-  echo '<pre>';
+  echo "regisstrar consulta <br>";
+  echo "<pre>";
   print_r($_GET);
-  echo '<pre>';
+  echo "</pre>";
 
   define( 'MYSQL_HOST', 'localhost' );
   define( 'MYSQL_USER', 'root' );
@@ -31,25 +31,20 @@
     $sql = "SELECT idUsuario, nomeUsuario FROM usuario";
     $result = $PDO->query( $sql );
     $rows = $result->fetchAll(PDO::FETCH_ASSOC);
-    
-
-    for($i=0; $i< sizeof($rows);$i++){
-      if ($rows[$i]['nomeUsuario'] == $consulta->__get('nomePaciente') || $rows[$i]['nomeUsuario'] == $consulta->__get('nomeAcompanhante')){
-        $idUser = $rows[$i]['idUsuario'];
-      }
-  } 
+ 
 
       function inserir($PDO, $consulta, $idUser){
 
-        $idPaciente = $idUser;
-        $statusConulta = 1;
+        $idPaciente = $_POST['id'];
+        $statusConsulta = 0;
         $nomePaciente = $consulta->__get('nomePaciente');
         $nomeAcompanhante = $consulta->__get('nomeAcompanhante');
         $data = $consulta->__get('dataConsulta');
         $sintomas = $consulta->__get('sintomas');
         $tipo = $consulta->__get('tipoConsulta');
 
-        $sql = 'INSERT INTO consulta(idUsuario, statusConulta, nomePaciente, nomeAcompanhante, dataConsulta, tipoConsulta, sintomas) VALUES(:id,:statusc, :paciente, :acompanhante, :datac, :tipo, :sintomas)';
+        $sql = 'INSERT INTO consulta(idUsuario, statusConsulta, nomePaciente, nomeAcompanhante, dataConsulta, tipoConsulta, sintomas) 
+                VALUES(:id,:statusc, :paciente, :acompanhante, :datac, :tipo, :sintomas)';
         $stmt = $PDO->prepare( $sql );
         $stmt->bindParam( ':paciente', $nomePaciente);
         $stmt->bindParam( ':acompanhante', $nomeAcompanhante );
@@ -57,7 +52,7 @@
         $stmt->bindParam( ':tipo',$tipo);
         $stmt->bindParam( ':sintomas',$sintomas);
         $stmt->bindParam( ':id',$idPaciente);
-        $stmt->bindParam( ':statusc',$statusConulta);
+        $stmt->bindParam( ':statusc',$statusConsulta);
         $stmt->execute();
       }
 
@@ -67,41 +62,40 @@
 
     $id = $_GET['id'];
     if(isset($_GET['crud']) && $_GET['crud']=='remover') { 
-
-    function remover($PDO, $id){
+      echo "remover";
       $idconsulta = $id;
       $sql = "DELETE FROM consulta WHERE idConsulta = :id";
       $stmt = $PDO->prepare( $sql );
       $stmt->bindParam( ':id', $idconsulta);
       $result = $stmt->execute();
-    }
-      remover($PDO, $id);
-      header('Location: listarConsultas.php');
+      header('Location: listarConsultas.php?remover=1');
+
     }
 
     if(isset($_GET['crud']) && $_GET['crud']=='concluido') {
+      echo "concluido";
+      $idconsulta = $id;
+      $status = 1;
+      $sql = "UPDATE consulta set statusConsulta = :status WHERE idConsulta = :id";
+      $stmt = $PDO->prepare( $sql );
+      $stmt->bindParam( ':status', $status);
+      $stmt->bindParam( ':id', $idconsulta);
+      $result = $stmt->execute();
+      header('Location: listarConsultas.php?concluido=1');
 
-      function concluido($PDO, $id){
-        $idconsulta = $id;
-        $status = 0;
-        $sql = "UPDATE consulta set statusConulta = :status WHERE idConsulta = :id";
-        $stmt = $PDO->prepare( $sql );
-        $stmt->bindParam( ':status', $status);
-        $stmt->bindParam( ':id', $idconsulta);
-        $result = $stmt->execute();
       }
-        concluido($PDO, $id);
-        header('Location: listarConsultas.php');
+
+
+    if(isset($_GET['crud']) && $_GET['crud']=='alterar') {
+      $idconsulta = $id;
+      $data = $_POST['data'];
+      $sql = "UPDATE consulta set dataConsulta = :data WHERE idConsulta = :id";
+      $stmt = $PDO->prepare( $sql );
+      $stmt->bindParam( ':id', $idconsulta);
+      $stmt->bindParam( ':data', $data);
+      $result = $stmt->execute();
+      header('Location: listarConsultas.php?alterar=1');
+
     }
-
-
-    function editar(){
-      
-    }
-    function recuperar(){
-      
-    }
-
-
 ?>
 
